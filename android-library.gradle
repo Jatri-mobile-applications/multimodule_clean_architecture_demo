@@ -35,6 +35,8 @@ android{
 
 dependencies {
     implementation project(ModulesDep.navigation)
+    implementation project(ModulesDep.domain)
+    implementation project(ModulesDep.common)
 
     implementation AppDep.coreKtx
     implementation AppDep.appCompat

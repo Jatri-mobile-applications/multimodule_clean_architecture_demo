@@ -20,8 +20,8 @@ android {
 
     buildTypes {
         debug {
-            minifyEnabled true
-            shrinkResources true
+            minifyEnabled false
+            shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
 
@@ -38,12 +38,18 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
     implementation project(ModulesDep.postList)
     implementation project(ModulesDep.navigation)
     implementation project(ModulesDep.di)
+    implementation project(ModulesDep.data)
+    implementation project(ModulesDep.domain)
+    implementation project(ModulesDep.common)
 
     implementation AppDep.coreKtx
     implementation AppDep.material

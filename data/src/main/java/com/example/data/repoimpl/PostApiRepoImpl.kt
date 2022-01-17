@@ -21,8 +21,8 @@ class PostApiRepoImpl @Inject constructor(
     override fun fetchPostList(): LiveData<ApiResponse<List<PostItemApiEntity>>> {
         return  object : NetworkBoundResource<List<PostItemApiResponse>>(){
             override fun createCall(): Single<List<PostItemApiResponse>> = postApiService.fetchPostList()
-        }.asLiveData().map {
-            mapFromApiResponse(it,postApiMapper)
+        }.asLiveData().map {data->
+            mapFromApiResponse(data,postApiMapper)
         }
     }
 
