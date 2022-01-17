@@ -4,4 +4,6 @@ object ModulesDep {
     const val di = ":core:di"
     const val api = ":core:api"
     const val apiResponse = ":model:apiresponse"
+    const val entity = ":model:entity"
+    const val domain = ":domain"
 }

@@ -1,4 +1,4 @@
-package com.example
+package com.jatri.entity
 
 sealed class ApiResponse<T>{
 

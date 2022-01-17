@@ -7,4 +7,5 @@ plugins {
 apply from: "$rootDir/android-core-library.gradle"
 dependencies {
     api project(ModulesDep.api)
+    implementation project(ModulesDep.domain)
 }
