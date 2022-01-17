@@ -9,3 +9,4 @@ dependencyResolutionManagement {
 rootProject.name = "DemoApp"
 include ':app'
 include ':feature:list'
+include ':navigation'

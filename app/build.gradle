@@ -41,6 +41,9 @@ android {
 }
 
 dependencies {
+    implementation project(ModulesDep.postList)
+    implementation project(ModulesDep.navigation)
+
     implementation AppDep.coreKtx
     implementation AppDep.material
     implementation AppDep.appCompat

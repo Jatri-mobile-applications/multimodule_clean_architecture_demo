@@ -34,6 +34,8 @@ android{
 }
 
 dependencies {
+    implementation project(ModulesDep.navigation)
+
     implementation AppDep.coreKtx
     implementation AppDep.appCompat
     implementation AppDep.material
