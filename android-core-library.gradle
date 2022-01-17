@@ -28,7 +28,6 @@ android{
 }
 
 dependencies {
-    implementation project(ModulesDep.sharedPref)
     implementation AppDep.coreKtx
     implementation AppDep.viewModel
     implementation AppDep.lifecycle

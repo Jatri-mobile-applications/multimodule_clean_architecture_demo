@@ -34,11 +34,6 @@ android{
 }
 
 dependencies {
-    implementation project(ModulesDep.common)
-    implementation project(ModulesDep.domain)
-    implementation project(ModulesDep.sharedPref)
-
-
     implementation AppDep.coreKtx
     implementation AppDep.appCompat
     implementation AppDep.material
