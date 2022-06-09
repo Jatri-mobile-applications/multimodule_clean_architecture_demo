@@ -25,6 +25,7 @@ jobs:
       with:
         java-version: 1.8
     - name: Build Debug APK
-      run: bash ./gradlew :app:assembleDebug
+      # run: bash ./gradlew :app:assembleDebug
+      run: ./gradlew build
               
 
