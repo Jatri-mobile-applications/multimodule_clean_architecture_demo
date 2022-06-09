@@ -1,10 +1,6 @@
 package com.demo.list
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.demo.list.databinding.PostListFragmentBinding
 import com.jatri.common.base.BaseFragment
@@ -25,17 +21,15 @@ class PostListFragment : BaseFragment<PostListFragmentBinding>() {
     }
 
     private fun fetchPostList(){
-        viewModel.fetchPostList().observe(viewLifecycleOwner,{apiResponse->
-            when(apiResponse){
-                is ApiResponse.Success->{
+        viewModel.fetchPostList().observe(viewLifecycleOwner) { apiResponse ->
+            when (apiResponse) {
+                is ApiResponse.Success -> {
                     showToastMessage(apiResponse.data[0].title)
                     adapter.submitList(apiResponse.data.toList())
                 }
-                is ApiResponse.Failure->showToastMessage(apiResponse.message)
-                is ApiResponse.Progress->showProgressBar(apiResponse.loading,binding.progressBar)
+                is ApiResponse.Failure -> showToastMessage(apiResponse.message)
+                is ApiResponse.Progress -> showProgressBar(apiResponse.loading, binding.progressBar)
             }
-        })
+        }
     }
-
-
 }

@@ -22,7 +22,6 @@ class PostListAdapter : DataBoundListAdapter<PostItemApiEntity,ItemPostListBindi
         ): Boolean {
             return oldItem.postId == newItem.postId
         }
-
     }
 ){
     override fun createBinding(parent: ViewGroup): ItemPostListBinding  =
