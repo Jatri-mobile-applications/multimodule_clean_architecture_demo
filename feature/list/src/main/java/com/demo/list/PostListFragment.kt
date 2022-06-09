@@ -20,6 +20,10 @@ class PostListFragment : BaseFragment<PostListFragmentBinding>() {
         fetchPostList()
     }
 
+    /**
+     * ...fetch post list from remote db
+     * ...display list on ui
+     */
     private fun fetchPostList(){
         viewModel.fetchPostList().observe(viewLifecycleOwner) { apiResponse ->
             when (apiResponse) {
