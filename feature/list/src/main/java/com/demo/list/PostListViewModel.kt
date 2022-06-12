@@ -23,11 +23,9 @@ class PostListViewModel @Inject constructor(
     private var _loadingState = MutableLiveData<Boolean>()
     val loadingState : LiveData<Boolean> get() = _loadingState
 
-    init {
-        fetchPostList()
-    }
 
-    private fun fetchPostList() {
+    fun fetchPostList() {
+        Timber.e("api calling start")
         viewModelScope.launch {
             _loadingState.value = true
             when(val data = postListApiUseCase.executeNew())

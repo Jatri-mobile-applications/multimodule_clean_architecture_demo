@@ -6,6 +6,7 @@ import com.demo.list.databinding.PostListFragmentBinding
 import com.jatri.common.base.BaseFragment
 import com.jatri.common.extfun.setUpVerticalRecyclerView
 import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 
 @AndroidEntryPoint
 class PostListFragment : BaseFragment<PostListFragmentBinding>() {
@@ -16,7 +17,9 @@ class PostListFragment : BaseFragment<PostListFragmentBinding>() {
 
     override fun initializeView(savedInstanceState: Bundle?) {
         requireActivity().setUpVerticalRecyclerView(binding.listRv,adapter)
-        observer()
+        Timber.e("fragment started")
+        //observer()
+        //viewModel.fetchPostList()
     }
 
     /**

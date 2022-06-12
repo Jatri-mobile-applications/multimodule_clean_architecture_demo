@@ -15,10 +15,7 @@ abstract class NetworkBoundResources {
                 val response: Response<T> = callApi()
                 if (response.isSuccessful)
                     ApiResponse.Success(response.body()!!)
-                else {
-                    val errorResponse = "Something went wrong"
-                    ApiResponse.Failure(errorResponse, response.code())
-                }
+                else ApiResponse.Failure("Something went wrong", response.code())
             } catch (e: Exception) {
                 ApiResponse.Failure(message(e), code(e))
             }
@@ -27,15 +24,14 @@ abstract class NetworkBoundResources {
 
     private fun message(throwable: Throwable?):String{
         when (throwable) {
-            is SocketTimeoutException -> return "Whoops! connection time out, try again!"
-            is IOException -> return "No internet connection, try again!"
+            is IOException -> return "No internet connection"
             is HttpException -> return try {
                 "Something went wrong"
             }catch (e:Exception){
-                "Unknown error occur, please try again!"
+                "Unknown error occur"
             }
         }
-        return "Unknown error occur, please try again!"
+        return "Unknown error occur"
     }
 
     private fun code(throwable: Throwable?):Int{
