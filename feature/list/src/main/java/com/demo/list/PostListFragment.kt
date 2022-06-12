@@ -5,7 +5,6 @@ import androidx.fragment.app.viewModels
 import com.demo.list.databinding.PostListFragmentBinding
 import com.jatri.common.base.BaseFragment
 import com.jatri.common.extfun.setUpVerticalRecyclerView
-import com.jatri.entity.ApiResponse
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -17,23 +16,22 @@ class PostListFragment : BaseFragment<PostListFragmentBinding>() {
 
     override fun initializeView(savedInstanceState: Bundle?) {
         requireActivity().setUpVerticalRecyclerView(binding.listRv,adapter)
-        fetchPostList()
+        observer()
     }
 
     /**
      * ...fetch post list from remote db
      * ...display list on ui
      */
-    private fun fetchPostList(){
-        viewModel.fetchPostList().observe(viewLifecycleOwner) { apiResponse ->
-            when (apiResponse) {
-                is ApiResponse.Success -> {
-                    showToastMessage(apiResponse.data[0].title)
-                    adapter.submitList(apiResponse.data.toList())
-                }
-                is ApiResponse.Failure -> showToastMessage(apiResponse.message)
-                is ApiResponse.Progress -> showProgressBar(apiResponse.loading, binding.progressBar)
-            }
+    private fun observer(){
+        viewModel.postItems.observe(viewLifecycleOwner) { apiResponse ->
+            if(apiResponse.isNotEmpty())
+                adapter.submitList(apiResponse)
+            else showToastMessage("No data found")
+        }
+
+        viewModel.loadingState.observe(viewLifecycleOwner){
+            showProgressBar(it, binding.progressBar)
         }
     }
 }

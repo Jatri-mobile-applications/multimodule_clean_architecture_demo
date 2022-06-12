@@ -10,6 +10,9 @@ class PostListApiUseCase @Inject constructor(
     private val postApiRepository: PostApiRepository
 ): ApiUseCase<Unit,List<PostItemApiEntity>>{
     override fun execute(params: Unit?): LiveData<ApiResponse<List<PostItemApiEntity>>> {
-        return postApiRepository.fetchPostList()
+        TODO("Not yet implemented")
     }
+
+    override suspend fun executeNew(params: Unit?): ApiResponse<List<PostItemApiEntity>> =
+        postApiRepository.fetchPostList()
 }

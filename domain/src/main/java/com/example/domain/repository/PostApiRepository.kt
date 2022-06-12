@@ -5,6 +5,6 @@ import com.jatri.entity.ApiResponse
 import com.jatri.entity.PostItemApiEntity
 
 interface PostApiRepository {
-    fun fetchPostList():LiveData<ApiResponse<List<PostItemApiEntity>>>
+    suspend fun fetchPostList():ApiResponse<List<PostItemApiEntity>>
     fun fetchSinglePost(id:Int):LiveData<ApiResponse<PostItemApiEntity>>
 }
