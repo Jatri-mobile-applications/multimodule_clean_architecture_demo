@@ -2,11 +2,21 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/post_nav"
-    app:startDestination="@id/postListFragment">
+    app:startDestination="@id/fetchDataFragment">
 
     <fragment
         android:id="@+id/postListFragment"
         android:name="com.demo.list.PostListFragment"
         android:label="PostListFragment" />
+
+
+    <fragment
+        android:id="@+id/fetchDataFragment"
+        android:name="com.demo.list.FetchDataFragment"
+        android:label="FetchDataFragment" >
+        <action
+            android:id="@+id/action_fetchDataFragment_to_postListFragment"
+            app:destination="@id/postListFragment" />
+    </fragment>
 
 </navigation>

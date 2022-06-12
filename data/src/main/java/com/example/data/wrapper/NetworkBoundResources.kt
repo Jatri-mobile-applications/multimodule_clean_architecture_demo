@@ -5,10 +5,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException
 import retrofit2.Response
+import timber.log.Timber
 import java.io.IOException
-import java.net.SocketTimeoutException
 
-abstract class NetworkBoundResources {
+interface NetworkBoundResources {
     suspend fun <T> downloadNetworkData(callApi: suspend () -> Response<T>): ApiResponse<T> {
         return withContext(Dispatchers.IO) {
             try {
@@ -17,6 +17,7 @@ abstract class NetworkBoundResources {
                     ApiResponse.Success(response.body()!!)
                 else ApiResponse.Failure("Something went wrong", response.code())
             } catch (e: Exception) {
+                Timber.e("errorCode: ${message(e)} and ${code(e)}")
                 ApiResponse.Failure(message(e), code(e))
             }
         }

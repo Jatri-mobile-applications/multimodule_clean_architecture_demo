@@ -11,7 +11,7 @@ interface PostApiService {
     fun fetchPostList():Single<List<PostItemApiResponse>>
 
     @GET("/posts")
-    fun fetchPostListData():Response<List<PostItemApiResponse>>
+    suspend fun fetchPostListData() : Response<List<PostItemApiResponse>>
 
     @GET("/posts/{id}")
     fun fetchPostById(@Path("id")id:Int):Response<PostItemApiResponse>

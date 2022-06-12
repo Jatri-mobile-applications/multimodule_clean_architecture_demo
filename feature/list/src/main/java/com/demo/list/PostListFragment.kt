@@ -18,8 +18,7 @@ class PostListFragment : BaseFragment<PostListFragmentBinding>() {
     override fun initializeView(savedInstanceState: Bundle?) {
         requireActivity().setUpVerticalRecyclerView(binding.listRv,adapter)
         Timber.e("fragment started")
-        //observer()
-        //viewModel.fetchPostList()
+        observer()
     }
 
     /**
@@ -27,14 +26,14 @@ class PostListFragment : BaseFragment<PostListFragmentBinding>() {
      * ...display list on ui
      */
     private fun observer(){
+        viewModel.loadingState.observe(viewLifecycleOwner){
+            showProgressBar(it, binding.progressBar)
+        }
+
         viewModel.postItems.observe(viewLifecycleOwner) { apiResponse ->
             if(apiResponse.isNotEmpty())
                 adapter.submitList(apiResponse)
             else showToastMessage("No data found")
-        }
-
-        viewModel.loadingState.observe(viewLifecycleOwner){
-            showProgressBar(it, binding.progressBar)
         }
     }
 }

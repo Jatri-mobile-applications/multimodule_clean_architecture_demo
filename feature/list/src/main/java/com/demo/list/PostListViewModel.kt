@@ -16,15 +16,17 @@ import javax.inject.Inject
 class PostListViewModel @Inject constructor(
     private val postListApiUseCase: PostListApiUseCase
 ): ViewModel() {
-
     private var _postItems = MutableLiveData<List<PostItemApiEntity>>()
     val postItems : LiveData<List<PostItemApiEntity>> get() = _postItems
 
     private var _loadingState = MutableLiveData<Boolean>()
     val loadingState : LiveData<Boolean> get() = _loadingState
 
+    init {
+        fetchPostList()
+    }
 
-    fun fetchPostList() {
+    private fun fetchPostList() {
         Timber.e("api calling start")
         viewModelScope.launch {
             _loadingState.value = true
