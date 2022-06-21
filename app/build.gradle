@@ -2,8 +2,8 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
-    id 'dagger.hilt.android.plugin'
     id 'androidx.navigation.safeargs.kotlin'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -44,12 +44,15 @@ android {
 }
 
 dependencies {
-    implementation project(ModulesDep.postList)
     implementation project(ModulesDep.navigation)
     implementation project(ModulesDep.di)
     implementation project(ModulesDep.data)
     implementation project(ModulesDep.domain)
     implementation project(ModulesDep.common)
+    implementation project(ModulesDep.assets)
+
+
+    implementation project(ModulesDep.postList)
 
     implementation AppDep.coreKtx
     implementation AppDep.material
@@ -84,6 +87,8 @@ dependencies {
     implementation AppDep.gson
     implementation AppDep.timber
 
+    implementation AppDep.epoxyCore
+    kapt AppDep.epoxyProcessor
 
     debugImplementation AppDep.leakcanary
 

@@ -41,6 +41,8 @@ object DepVersion {
     const val facebookMarketingVersion = "7.0.1"
     const val viewPagerDotIndicatorVersion = "4.2"
 
+    const val epoxyVersion = "5.0.0-beta05"
+
     const val espressoVersion = "3.4.0"
     const val junitVersion = "4.13.2"
     const val junitExtVersion = "1.1.3"

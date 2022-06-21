@@ -8,4 +8,5 @@ object ModulesDep {
     const val entity = ":model:entity"
     const val domain = ":domain"
     const val common = ":common"
+    const val assets = ":assets"
 }

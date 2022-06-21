@@ -58,6 +58,9 @@ object AppDep {
     const val firebaseAnalytics = "com.google.firebase:firebase-analytics-ktx"
     const val firebaseCrashlytics = "com.google.firebase:firebase-crashlytics-ktx"
 
+    const val epoxyCore = "com.airbnb.android:epoxy:${DepVersion.epoxyVersion}"
+    const val epoxyProcessor = "com.airbnb.android:epoxy-processor:${DepVersion.epoxyVersion}"
+
     const val room = "androidx.room:room-ktx:${DepVersion.roomVersion}"
     const val roomRuntime = "androidx.room:room-runtime:${DepVersion.roomVersion}"
     const val roomCompiler = "androidx.room:room-compiler:${DepVersion.roomVersion}"

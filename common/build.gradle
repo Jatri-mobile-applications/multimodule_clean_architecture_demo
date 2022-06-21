@@ -13,4 +13,6 @@ dependencies {
     implementation AppDep.rxJava3Android
     implementation AppDep.material
     implementation AppDep.preference
+    implementation AppDep.epoxyCore
+    implementation project(ModulesDep.assets)
 }
